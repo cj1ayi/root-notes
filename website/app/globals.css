@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-terminal-bg: #0a0a0f;
+  --color-terminal-surface: #12121a;
+  --color-terminal-border: #1e1e2e;
+  --color-terminal-text: #e0e0e0;
+  --color-terminal-muted: #808080;
+  --color-accent-pink: #ff6ec7;
+  --color-accent-purple: #bd93f9;
+  --color-accent-cyan: #8be9fd;
+  --color-accent-green: #50fa7b;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+body {
+  background-color: var(--color-terminal-bg);
+  color: var(--color-terminal-text);
+  font-family: var(--font-family-mono);
+  background-image: 
+    linear-gradient(rgba(255, 110, 199, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 110, 199, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.crt-effect {
+  position: relative;
+}
+
+.crt-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-terminal-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-accent-pink) 30%, transparent);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-accent-pink) 50%, transparent);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 110, 199, 0.5);
+}
+
+.prose {
+  color: var(--color-terminal-text);
+  max-width: none;
+}
+
+.prose h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--color-accent-pink);
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-accent-purple);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-terminal-border);
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-accent-cyan);
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--color-terminal-text) 90%, transparent);
+}
+
+.prose code {
+  background: var(--color-terminal-surface);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--color-accent-cyan);
+  font-size: 0.875rem;
+  border: 1px solid var(--color-terminal-border);
+}
+
+.prose pre {
+  background: var(--color-terminal-surface);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-terminal-border);
+}
+
+.prose pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.prose ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  padding-left: 0.5rem;
+}
+
+.prose li::marker {
+  color: var(--color-accent-pink);
+}
+
+/* Nested list styles - different bullets for each level */
+.prose ul ul {
+  list-style-type: circle;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose ul ul ul {
+  list-style-type: square;
+}
+
+.prose ul ul ul ul {
+  list-style-type: disc;
+}
+
+/* Different colors for nested list markers */
+.prose ul ul li::marker {
+  color: var(--color-accent-purple);
+}
+
+.prose ul ul ul li::marker {
+  color: var(--color-accent-cyan);
+}
+
+.prose ul ul ul ul li::marker {
+  color: var(--color-accent-green);
+}
+
+/* Nested ordered lists */
+.prose ol ol {
+  list-style-type: lower-alpha;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.prose ol ol ol ol {
+  list-style-type: decimal;
+}
+
+.prose a {
+  color: var(--color-accent-purple);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-accent-purple) 30%, transparent);
+  transition: all 0.2s;
+}
+
+.prose a:hover {
+  color: var(--color-accent-pink);
+  text-decoration-color: var(--color-accent-pink);
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-accent-pink);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+  color: color-mix(in srgb, var(--color-terminal-text) 70%, transparent);
+}
+
+.prose strong {
+  color: var(--color-accent-pink);
+  font-weight: 600;
+}
+
+.prose em {
+  color: var(--color-accent-cyan);
+  font-style: italic;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--color-terminal-border);
+  padding: 0.75rem 1rem;
+}
+
+.prose th {
+  background: var(--color-terminal-surface);
+  color: var(--color-accent-pink);
+  font-weight: 600;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-terminal-border);
+  margin: 1rem 0;
+}
+
+.card-hover {
+  transition: all 0.3s;
+  box-shadow: 0 0 0 1px rgba(255, 110, 199, 0.2);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 110, 199, 0.3), 0 0 0 1px rgba(255, 110, 199, 0.5);
+}
