@@ -1,0 +1,15 @@
+# Obsidian
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Website
+website/node_modules/
+website/.next/
+website/out/
+website/.env*.local
+
+# System
+.DS_Store
+Thumbs.db
