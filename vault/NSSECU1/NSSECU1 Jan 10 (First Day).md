@@ -36,7 +36,6 @@ What is C.I.A Triad (Bread and Butter of InfoSec)
     - Name
     - Credit Cards
     - Salary
-
   
 **Integrity**
 - quality of something being whole or complete
