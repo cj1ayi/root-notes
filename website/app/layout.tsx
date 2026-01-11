@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "root@notes",
-  description: "Personal cybersecurity knowledge base",
+  description: "nate's personal cybersecurity knowledge base",
 };
 
 export default function RootLayout({

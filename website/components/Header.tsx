@@ -10,7 +10,7 @@ export default function Header() {
             <h1 className="text-xl font-bold text-[var(--color-accent-pink)] glow-text group-hover:text-[var(--color-accent-purple)] transition-colors">
               root@notes
             </h1>
-            <p className="text-xs text-[var(--color-terminal-muted)]">Cybersecurity Knowledge Base</p>
+            <p className="text-xs text-[var(--color-terminal-muted)]">nate's personal cybersecurity knowledge base</p>
           </div>
         </Link>
         
