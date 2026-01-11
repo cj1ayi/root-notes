@@ -100,9 +100,20 @@ function getFileName(filePath: string): string {
 }
 
 function processObsidianLinks(content: string): string {
-  return content.replace(/\[\[([^\]|]+)(\|([^\]]+))?\]\]/g, (match, p1, p2, p3) => {
+  // Process image embeds: ![[image.png]] -> ![alt](/attachments/image.png)
+  // URL-encode the filename to handle spaces
+  content = content.replace(/!\[\[([^\]|]+?)(\|([^\]]+))?\]\]/g, (match, p1) => {
+    const imageName = p1.trim();
+    const encodedName = encodeURIComponent(imageName);
+    return `![${imageName}](/attachments/${encodedName})`;
+  });
+  
+  // Process wiki links: [[link]] or [[link|text]] -> [text](/notes/slug)
+  content = content.replace(/\[\[([^\]|]+)(\|([^\]]+))?\]\]/g, (match, p1, p2, p3) => {
     const linkText = p3 || p1;
     const slug = p1.toLowerCase().replace(/\s+/g, '-');
     return `[${linkText}](/notes/${slug})`;
   });
+  
+  return content;
 }
